@@ -4,8 +4,8 @@ public class Plateau_Hexagon extends Plateau {
 		
 		larg = size ;
 		longu = size ;
-		form_case = ;
-		form_plat = ;
+		form_case = 6;
+		form_plat = 4;
 		
 		pion = new hexaPawn[larg][longu] ;
 
@@ -52,4 +52,43 @@ public class Plateau_Hexagon extends Plateau {
         	}	
 		
 	}
+
+
+	public int isGameEnd(){ //return 0 Both can play ; 1 player 1 can't play ; 2 player 2 can't play ; 3 Both can't play
+		int i, j;
+	
+		int res=0;
+	
+		vect pos;
+			
+		boolean pl1=false, pl2=false;
+
+		for(i=0 ; i<larg ;i++){
+			for(j=0; j<larg; j++){
+				vect.x = i;
+				vect.y = j;
+				if(pion[i][j]==1)
+					pl1 = pl1 || pion[i][j].IsAlive(pos ,this) ;
+				else if(pion[i][j]==2)
+					pl2 = pl2 || pion[i][j].IsAlive(pos, this) ;
+			}
+		}	
+			
+		if(!pl1&&pl2)
+			res=1;
+		else if(pl1&&!pl2)
+			res=2;
+		else if(!pl1&&!pl2)
+			res=3;
+
+		return res;
+
+	}
 }
+
+
+
+
+
+
+

@@ -9,13 +9,13 @@ public class hexaPawn extends Pion
 
 	public int ValidMove(vect start, vect end, Plateau_Hexagon board){                                                            
         	vect dpl; 
-        	move Res;                                                                                               
+        	int Res;                                                                                               
        		int normSquare;                                                                                         
 
         	dpl.x=end.x-start.x;
         	dpl.y=end.y-start.y;                                                                                    
 
-        	if(end.x>=0 && end.x<board.size && end.y>=0 && end.y<board.size && board.pion[end.x][end.y].val==0){
+        	if(end.x>=0 && end.x<board.larg && end.y>=0 && end.y<board.larg && board.pion[end.x][end.y].val==0){
                 	normSquare=(dpl.x*dpl.x)+(dpl.y*dpl.y);                                                         
 
                 	if(dpl.x*dpl.y>=0){                                                                             
@@ -43,17 +43,18 @@ public class hexaPawn extends Pion
 
 	public void playMove(Plateau_Hexagon board, vect start, vect end){
         	int i=0;
+		int mvt = ValidMove(start, end, board);
 
-        	if(mvt==DUPLICATE){
+        	if(mvt==2){
                 	board.pion[end.x][end.y].val = val;
         	}
 
-        	else if(mvt==JUMP){
+        	else if(mvt==1){
                 	board.pion[end.x][end.y].val = val;
-                	board.pion[start.x][start.y].val = EMPTY;
+                	board.pion[start.x][start.y].val = 0;
         	}
 
-        	if(mvt==JUMP || mvt==DUPLICATE){
+        	if(mvt==1 || mvt==2){
                 	for(i=0; i<6 ; i++){
                         	if(board.pion[end.x][end.y].neighbords[i]!=null){
                                 	if(board.pion[end.x][end.y].neighbords[i].val!=val && (board.pion[end.x][end.y].neighbords[i].val==2 || board.pion[end.x][end.y].neighbords[i].val==1) ){
@@ -65,6 +66,47 @@ public class hexaPawn extends Pion
 	} 
 
 
+	public boolean IsAlive(vect pos, Plateau_Hexagon board){
+        	int i=0, j=0;
+		boolean res = false;
+
+        	for(i=pos.x-2 ; i<=pos.x ; i++){
+                	for(j=pos.y-2 ; j<=pos.y ; j++){
+                        	if(j>=0 && i>=0 && j<board.larg && i<board.larg){
+                                	if(board.pion[i][j].val==0){
+                                        	res = true;
+                                	}
+                        	}
+                	}
+        	}
+
+        	for(i=pos.x ; i<=pos.x+2 ; i++){
+                	for(j=pos.y ; j<=pos.y+2 ; j++){
+                        	if(j>=0 && i>=0 && j<board.larg && i<board.larg){
+                                	if(board.pion[i][j].val==0){
+                                        	res = true;
+                                	}
+                        	}
+                	}	
+        	}
+
+        	i=pos.x+1;
+        	j=pos.y-1;
+       		if(j>=0 && i>=0 && j<board.larg && i<board.larg){
+                	if(board.pion[i][j].val==0){
+                        	        res = true;
+                	}
+        	}
+
+       		i=pos.x-1;
+        	j=pos.y+1;
+        	if(j>=0 && i>=0 && j<board.larg && i<board.larg){
+                	if(board.pion[i][j].val==0){
+                        	        res = true;
+                	}
+        	}
+	        return res;
+	}
 	
 }
 

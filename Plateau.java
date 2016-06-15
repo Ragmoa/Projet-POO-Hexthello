@@ -1,4 +1,4 @@
-public abstract class Plateau extends JPanel
+public abstract class Plateau
 {
 	//Attributs
 	protected int larg;

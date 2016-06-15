@@ -10,7 +10,7 @@ public class Hexx_Size_Input_Menu extends JFrame {
 
     int size;
     private JSpinner size_input;
-    private JLabel err;
+
     int max_size=6, min_size=3;
     public Hexx_Size_Input_Menu(){
 
@@ -23,14 +23,12 @@ public class Hexx_Size_Input_Menu extends JFrame {
         panel.setLayout(g_layout);
         add(panel,BorderLayout.CENTER);
 
-        err = new JLabel();
-        err.setBorder(BorderFactory.createEtchedBorder());
-        add(err,BorderLayout.SOUTH);
 
         JButton submit = new JButton ("OK");
         //TODO: MAKE A BUTTON THAT RETURNS AND EXITS THIS WINDOW.
 
         size_input = new JSpinner();
+        size_input.setValue(3);
         size_input.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {

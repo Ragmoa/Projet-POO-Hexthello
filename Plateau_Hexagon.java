@@ -1,4 +1,6 @@
 public class Plateau_Hexagon extends Plateau {
+
+	public hexaPawn[][] pion;
 	
 	public Plateau_Hexagon(int size){
 		
@@ -59,17 +61,17 @@ public class Plateau_Hexagon extends Plateau {
 	
 		int res=0;
 	
-		vect pos;
+		vect pos = new vect();
 			
 		boolean pl1=false, pl2=false;
 
 		for(i=0 ; i<larg ;i++){
 			for(j=0; j<larg; j++){
-				vect.x = i;
-				vect.y = j;
-				if(pion[i][j]==1)
+				pos.x = i;
+				pos.y = j;
+				if(pion[i][j].val==1)
 					pl1 = pl1 || pion[i][j].IsAlive(pos ,this) ;
-				else if(pion[i][j]==2)
+				else if(pion[i][j].val==2)
 					pl2 = pl2 || pion[i][j].IsAlive(pos, this) ;
 			}
 		}	

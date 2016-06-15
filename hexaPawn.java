@@ -1,4 +1,4 @@
-public class hexaPawn extends Pion
+public class hexaPawn extends Pion{
 		
 	public hexaPawn[] neighbords;
 
@@ -8,7 +8,7 @@ public class hexaPawn extends Pion
 	}
 
 	public int ValidMove(vect start, vect end, Plateau_Hexagon board){                                                            
-        	vect dpl; 
+        	vect dpl = new vect(); 
         	int Res;                                                                                               
        		int normSquare;                                                                                         
 

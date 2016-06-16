@@ -79,7 +79,6 @@ public class MainMenu extends JFrame{
         menuBar.add(exit_button);
 
         //                  --- Making the buttons actually do stuff ---
-        //TODO: NOT WORKING YET... :/
         h_pve.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

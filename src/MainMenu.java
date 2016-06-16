@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -81,7 +83,7 @@ public class MainMenu extends JFrame{
         h_pve.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            Hexx_Size_Input_Menu input_menu = new Hexx_Size_Input_Menu();
+                int p_size=get_spinner("Entrez la taille du tableau",3,6);
             }
         });
         //TODO: LA SUITE
@@ -112,5 +114,33 @@ public class MainMenu extends JFrame{
             }
         });
     }
+    public int get_spinner(String message, int min, int max){//Displays a spinner to select a value between min and max, with the question message.
+        JOptionPane input_size= new JOptionPane();
+        JSpinner spinner = new JSpinner();
+        spinner.setValue(((max-min)/2)+min);
+        spinner.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if ((int) spinner.getValue() > max) {
+                    spinner.setValue(max);
+                }
+                if ((int) spinner.getValue() < min) {
+                    spinner.setValue(min);
+                }
+            }
+        });
+
+        int lel=input_size.showOptionDialog(null,spinner,message,JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+        if (lel== JOptionPane.CANCEL_OPTION){
+            lel=0;
+        }
+        else
+        {
+            lel=(int)spinner.getValue();
+        }
+        return lel;
+
+    }
 
 }
+

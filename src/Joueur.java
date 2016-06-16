@@ -1,8 +1,10 @@
 
 public class Joueur {
-    boolean IA;
+    boolean ia;
     String name;
     int score;
     String color;
+
+    public Joueur(boolean ia, String name, int score, String color){};
 
 }

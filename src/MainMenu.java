@@ -79,13 +79,33 @@ public class MainMenu extends JFrame{
         menuBar.add(exit_button);
 
         //                  --- Making the buttons actually do stuff ---
-        h_pve.addActionListener(new ActionListener() {
+        h_pve.addActionListener(new ActionListener() {  //Hexxagon PVE
             @Override
             public void actionPerformed(ActionEvent e) {
-                int p_size=get_spinner("Entrez la taille du tableau",3,6);
+                start_h_game(true);
+
             }
         });
-        //TODO: LA SUITE
+
+        h_pvp.addActionListener(new ActionListener() {  //Hexxagon PVP
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                start_h_game(false);
+            }
+        });
+        o_pve.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { //Othello PVE
+                start_o_game(true);
+            }
+        });
+        o_pvp.addActionListener(new ActionListener() { //Othello PVP
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                start_o_game(false);
+            }
+        });
+        //TODO: LEADERBOARDS
 
 
 
@@ -138,6 +158,89 @@ public class MainMenu extends JFrame{
             lel=(int)spinner.getValue();
         }
         return lel;
+
+    }
+    public String get_string(String message, String def){
+        JOptionPane string_input = new JOptionPane();
+        Object obj;
+        obj= string_input.showInputDialog(null, message,message,JOptionPane.QUESTION_MESSAGE,null,null,def);
+
+        if (obj!=null) {
+            return obj.toString();
+        }
+        else
+        {
+            return "\n";
+        }
+    }
+
+    public void start_h_game(boolean j2ai)//to prepare an hexxagon game
+    {
+        if (j2ai) {
+            int p_size = get_spinner("Entrez la taille du tableau", 3, 6);
+
+            if (p_size != 0) {
+                String j1_name=get_string("Entrez le nom du Joueur 1","Orangylux");
+                if (j1_name!="\n") {
+                    Joueur j1 = new Joueur(false, j1_name, 0, "000000");
+                    Joueur j2 = new Joueur(true, "Granolax", 0, "FFFFFF");
+                    //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
+                    //TODO: LAUNCH GAME
+                    System.out.print("Lauuuuuuuunch!");
+                }
+            }
+            else
+            {
+                //LEAVE EMPTY
+            }
+        }
+        else
+        {
+            int p_size = get_spinner("Entrez la taille du tableau", 3, 6);
+            if (p_size != 0)
+            {
+                  String j1_name= get_string("Entrez le nom du Joueur 1","Orangylux");
+                if (j1_name!="\n")
+                {
+                    Joueur j1 = new Joueur(false, j1_name, 0, "000000");
+                    String j2_name = get_string("Entrez le nom du Joueur 2", "Granolax");
+                    if (j2_name!="\n")
+                    {
+                        Joueur j2 = new Joueur(false, j2_name, 0, "000000");
+                        //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
+                        //TODO: LAUNCH GAME
+                    }
+                }
+            }
+        }
+    }
+    public void start_o_game(boolean j2ai)
+    {
+        if (j2ai)
+        {
+            String j1_name=get_string("Entrez le nom du Joueur 1", "Orangylux");
+            if (j1_name!="\n")
+            {
+                Joueur j1= new Joueur(false,j1_name,0,"000000");
+                Joueur j2= new Joueur(true,"Granolax",0,"FFFFFF");
+                //TODO: LAUNCH GAME
+            }
+        }
+        else
+        {
+            String j1_name=get_string("Entrez le nom du Joueur 1", "Orangylux");
+            if (j1_name!="\n")
+            {
+                Joueur j1 = new Joueur(false, j1_name, 0, "000000");
+                String j2_name= get_string("Entrez le nom du Joueur 2", "Granolax");
+                if (j2_name!="\n")
+                {
+                    Joueur j2 = new Joueur(false, j2_name,0,"FFFFFF");
+                    //TODO:LAUNCH GAME
+                }
+            }
+
+        }
 
     }
 

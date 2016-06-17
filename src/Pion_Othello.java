@@ -299,5 +299,44 @@ public class Pion_Othello extends Pion
 		    haut_gauche_retourne(P, J,pos);
 
 		}
+		
+		
+		int coup_possible(Plateau_Othello P,Joueur J)
+		{
+		    vect pos = new vect();
+		    int nbcoup=0;
+		    for(pos.x=0;pos.x<8;pos.x++)
+		    {
+		        for(pos.y=0;pos.y<8;pos.y++)
+		        {
+		            if(est_debut_coup_valide(P,J,pos) && est_coup_valide(P,J,pos)!=0 )
+		            {
+		                nbcoup++;
+		            }
+		
+		        }
+		    }
+		    return nbcoup;
+		}
+		
+		vect meilleur_coup_possible(Plateau_Othello P,Joueur J)
+		{
+			vect pos = new vect();
+			vect posMax = new vect();
+		    int max=0;
+		    for(pos.x=0;pos.x<8;pos.x++)
+		    {
+		        for(pos.y=0;pos.y<8;pos.y++)
+		        {
+		            if(est_debut_coup_valide(P,J,pos) && est_coup_valide(P,J,pos)>max )
+		            {
+		                max=est_coup_valide(P,J,pos);
+		                posMax.x=pos.x;
+		                posMax.y=pos.y;
+		            }
+		        }
+		    }
+		    return posMax;
+		}
 
 }

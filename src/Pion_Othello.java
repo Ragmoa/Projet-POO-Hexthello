@@ -1,5 +1,3 @@
-package othello;
-
 public class Pion_Othello extends Pion
 {
 	

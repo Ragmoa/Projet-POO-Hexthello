@@ -62,7 +62,7 @@ public class MainMenu extends JFrame{
                 othello.add(o_pve);
                 othello.add(o_pvp);
         //->menubar
-        menuBar.add(leaderboard);
+        /*menuBar.add(leaderboard);
             //-->Leaderboard
             leaderboard.add(l_show);
                 //--->Show
@@ -72,7 +72,7 @@ public class MainMenu extends JFrame{
             leaderboard.add(l_reset);
                 //--->Rest
                 l_reset.add(r_hexxagon);
-                l_reset.add(r_othello);
+                l_reset.add(r_othello);*/
         //->menubar (For the quit button to be on the right end of the menu bar)
         menuBar.add(Box.createHorizontalGlue());
         //->menubar
@@ -219,7 +219,11 @@ public class MainMenu extends JFrame{
                             j1.color = color_selector(j1_name, 0);
                             j2.color = color_selector(j2_name, 1);
                         }
-                        //TODO: LAUNCH GAME
+                        Joueur ready[]={j1,j2};
+                        Plateau_Hexagon hex_p= new Plateau_Hexagon(p_size);
+                        Game_Window gw= new Game_Window(hex_p,ready);
+                        dispose();
+                        gw.setVisible(true);
                     }
                 }
             }

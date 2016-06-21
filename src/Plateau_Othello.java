@@ -6,6 +6,8 @@ public class Plateau_Othello extends Plateau {
 		
 		larg = 8;
 		longu = 8;
+		form_case=4;
+        form_plat=4;
 		int cases_invalides=cases_inva;
 		
 		pion = new Pion_Othello[larg][longu] ;

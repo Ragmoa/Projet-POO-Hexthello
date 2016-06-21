@@ -215,7 +215,7 @@ public class MainMenu extends JFrame{
                     {
                         String c2 =color_selector(j2_name,1);
                         Joueur j2 = new Joueur(false, j2_name, 0, c2);
-                        while (j1.color==j2.color) {
+                        while (j1.color.equals(j2.color)){
                             j1.color = color_selector(j1_name, 0);
                             j2.color = color_selector(j2_name, 1);
                         }
@@ -238,7 +238,11 @@ public class MainMenu extends JFrame{
             {
                 Joueur j1= new Joueur(false,j1_name,0,"Blanc");
                 Joueur j2= new Joueur(true,"Granolax",0,"Noir");
-                //TODO: LAUNCH GAME
+                Joueur ready[]={j1,j2};
+                Plateau_Othello o_p = new Plateau_Othello(0);
+                Game_Window gw = new Game_Window(o_p, ready);
+                dispose();
+                gw.setVisible(true);
             }
         }
         else
@@ -251,11 +255,16 @@ public class MainMenu extends JFrame{
                 if (j2_name!="\n")
                 {
                     Joueur j2 = new Joueur(false, j2_name,0,"Noir");
-                    //TODO:LAUNCH GAME
+                    Joueur ready[]={j1,j2};
+                    Plateau_Othello o_p = new Plateau_Othello(0);
+                    Game_Window gw = new Game_Window(o_p, ready);
+                    dispose();
+                    gw.setVisible(true);
                 }
             }
 
         }
+
 
     }
     public String color_selector(String titre, int i)

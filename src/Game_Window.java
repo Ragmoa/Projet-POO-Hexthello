@@ -1,10 +1,12 @@
 import javax.imageio.ImageIO;
+import javax.print.URIException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 import java.io.*;
+import java.net.URISyntaxException;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -19,6 +21,25 @@ public class Game_Window extends JPanel {
         InitUI();
     }
 
+    public void affichePion(int i, int j)
+    {
+    	BufferedImage pion=null;
+		JLabel p_label = null;
+		try {
+            //plateau = ImageIO.read(new File("/OTHELLO/othello-plat.png"));
+    		pion = ImageIO.read(new File("OTHELLO/b.png"));
+
+        }catch (IOException ex ){
+            //Je sais pas quoi foutre, ce langage est merdique!
+        }
+    	Image dimg = pion.getScaledInstance(60,60,Image.SCALE_SMOOTH);
+        BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
+        Graphics2D bGr = bimage.createGraphics();
+        bGr.drawImage(dimg, (i*75+20) ,(j*75+20), null);
+        bGr.dispose();
+        p_label= new JLabel(new ImageIcon(bimage));
+        add(p_label);
+    }
     public void InitUI(){
         JLabel p_label = null;
         BufferedImage plateau=null;
@@ -26,7 +47,21 @@ public class Game_Window extends JPanel {
         //setName("Hexthello");
         if (game_board.form_case==4)
         {
-            //Partie spécifique a Othello
+        	try {
+                //plateau = ImageIO.read(new File("/OTHELLO/othello-plat.png"));
+        		System.out.println(new File("othello.png"));
+        		plateau = ImageIO.read(new File("OTHELLO/othello.png"));
+	
+            }catch (IOException ex ){
+                //Je sais pas quoi foutre, ce langage est merdique!
+            }
+        	Image dimg = plateau.getScaledInstance(620,620,Image.SCALE_SMOOTH);
+            BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
+            Graphics2D bGr = bimage.createGraphics();
+            bGr.drawImage(dimg, 0, 10, null);
+            bGr.dispose();
+            p_label= new JLabel(new ImageIcon(bimage));
+            add(p_label);
         }
         else if (game_board.form_case==6)
         {
@@ -34,7 +69,7 @@ public class Game_Window extends JPanel {
             if (game_board.larg==3)
             {
                 try {
-                    plateau = ImageIO.read(new File("HEXA/4x4/hexa-4x4.png"));
+                    plateau = ImageIO.read(new File("HEXA/4x4/hexa-3x3.png"));
                 }catch (IOException ex){
                     //Je sais pas quoi foutre, ce langage est merdique!
                 }

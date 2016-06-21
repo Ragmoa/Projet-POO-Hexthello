@@ -1,8 +1,12 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class MainMenu extends JFrame{
 
@@ -255,7 +259,7 @@ public class MainMenu extends JFrame{
                 JFrame shitty_swing= new JFrame();
                 shitty_swing.add(gw);
                 shitty_swing.setTitle("Hexthello-Othello");
-                shitty_swing.setSize(800,600);
+                shitty_swing.setSize(630,630);
                 shitty_swing.setVisible(true);
                 shitty_swing.setLocation(400,300);
                 gw.setVisible(true);
@@ -278,9 +282,17 @@ public class MainMenu extends JFrame{
                     JFrame shitty_swing= new JFrame();
                     shitty_swing.add(gw);
                     shitty_swing.setTitle("Hexthello-Othello");
-                    shitty_swing.setSize(800,600);
+                    shitty_swing.setSize(630,630);
                     shitty_swing.setVisible(true);
                     shitty_swing.setLocation(400,300);
+                    
+                    for(int i=0;i<8;i++)
+                    {
+                    	for(int j=0;j<8;j++)
+                    	{
+                    		gw.affichePion(i,j);
+                    	}
+                    }
                     gw.setVisible(true);
                 }
             }

@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 \usepackage{graphicx}
-
+\usepackage{/home/rylux/texlive2015/texmf-dist/tex/generic/tikz-uml/tikz-uml}
 \renewcommand{\thesection}{\arabic{section}}
 \begin{document}
 \title{%
@@ -16,5 +16,38 @@
     \end{minipage}
  }
  \maketitle
+ \maketitle
+ \newpage
+\begin{center}
+    \begin{tikzpicture}
+            \umlclass[x=1]{Plateau}{
+                  +larg : int \\ +long : int \\ +form\_case : int \\ +form\_plat : int
+              }{}
+             \umlclass[x=-2.5]{Pion}{
+                    \#val : int
+                }{}
+             \umlclass[y=-7,x=4]{Plateau-Hexxagon}{
+                      +pion[ ][ ] : hexaPawn 
+                  }{ +Plateau\_Hexxagon() \\ -init\_plateau(): void \\ -isGameEnd() : int
+                  }
+                  \umlclass[y=-3.5,x=4]{Plateau-Othello}{
+                     +pion[ ][ ] : Pion-Othello
+                    }{ +Plateau\_Othello() \\ +init\_plateau() : void
+                    }
+             \umlclass[y=-12,x=-7]{hexaPawn}{
+                            +neighbors[ ] : hexaPawn 
+                        }{ +hexaPawn()\\ +Validemove() : int \\ +playMove() : void \\ +IsAlive() : boolean \\
+                        }
+             \umlclass[y=-2.5,x=-7]{Pion-Othello}{
+                        }{ +est\_debut\_coup\_valide() : boolean \\ +haut\_valide() : int \\ +haut\_droite\_valide() : int \\ +droite\_valide() : int \\ +bas\_droite\_valide() : int \\ +bas\_valide() : int \\ +bas\_gauche\_valide() : int\\ +gauche\_valide() : int \\ +haut\_gauche\_valide() : int \\ +est\_coup\_valide() : int \\ +haut\_retourne() : void \\ +haut\_droite\_retourne() : void \\ +droite\_retourne() : void\\ +bas\_droite\_retourne() : void \\ +bas\_retourne() : void \\+bas\_gauche\_retourne() : void \\ +gauche\_retourne() : void \\ +haut\_gauche\_retourne() : void \\ +retourne\_all() : void \\ +coup\_possible() : int \\meilleur\_coup\_possible() : vect
+                        }
+         \umlinherit[geometry=-|]{Pion-Othello}{Pion}
+         \umlinherit[geometry=-|]{hexaPawn}{Pion}
+         \umlinherit[geometry=-|]{Plateau-Hexxagon}{Plateau}
+         \umlinherit[geometry=-|]{Plateau-Othello}{Plateau}
+         \umluniassoc[geometry=-|, anchor1=55]{Pion-Othello}{Plateau-Othello}
+         \umluniassoc[geometry=-|, anchor1=-10]{hexaPawn}{Plateau-Hexxagon}
+     \end{tikzpicture}
+ \end{center}
  
  \end{document}

@@ -11,14 +11,6 @@ public abstract class Plateau
 }
 
 
-class Game_Winodw extends JFrame{
-
-    public Game_Winodw()
-    {
-        Init_Game_Window();
-    }
-
-    public void Init_Game_Window(){
 
 
 
@@ -33,8 +25,4 @@ class Game_Winodw extends JFrame{
 
 
 
-    }
-
-
-}
 

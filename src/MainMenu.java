@@ -189,7 +189,7 @@ public class MainMenu extends JFrame{
                     {
                         j1.color=color_selector(j1_name,0);
                     }
-                    //TODO: LAUNCH GAME
+                    //NO AI!
                     System.out.print("Lauuuuuuuunch!");
                     dispose();
 
@@ -219,7 +219,6 @@ public class MainMenu extends JFrame{
                             j1.color = color_selector(j1_name, 0);
                             j2.color = color_selector(j2_name, 1);
                         }
-                        //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
                         //TODO: LAUNCH GAME
                     }
                 }

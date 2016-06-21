@@ -41,7 +41,7 @@ public class Pion_Othello extends Pion
 			if(pos.y>0)
 			{
 				int i=1;
-				if((P.pion[pos.x][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x][pos.y-i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x][pos.y-i].val==2 && pos.y-i>0)
 					{
@@ -53,7 +53,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x][pos.y-i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x][pos.y-i].val==1 && pos.y-i>0)
 					{
@@ -77,7 +77,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 				if(pos.y <7)
 				{
-				if((P.pion[pos.x][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x][pos.y+i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x][pos.y+i].val==2 && pos.y+i<7)
 					{
@@ -89,7 +89,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x][pos.y+i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x][pos.y+i].val==1 && pos.y+i<7)
 					{
@@ -113,7 +113,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.x>0)
 			{
-				if((P.pion[pos.x-i][pos.y].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x-i][pos.y].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x-i][pos.y].val==2 && pos.x-i>0)
 					{
@@ -125,7 +125,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x-i][pos.y].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x-i][pos.y].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x-i][pos.y].val==1 && pos.x-i>0)
 					{
@@ -149,7 +149,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.x<7)
 			{
-				if((P.pion[pos.x+i][pos.y].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x+i][pos.y].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x+i][pos.y].val==2 && pos.x+i<7)
 					{
@@ -161,7 +161,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x+i][pos.y].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x+i][pos.y].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x+i][pos.y].val==1 && pos.x+i<7)
 					{
@@ -185,7 +185,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.y>0 && pos.x<7)
 			{
-				if((P.pion[pos.x+i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x+i][pos.y-i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x+i][pos.y-i].val==2 && (pos.x+i<7 && pos.y-i>0) )
 					{
@@ -197,7 +197,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x+i][pos.y-i].val==1 && (pos.x+i<7 && pos.y-i>0) )
 					{
@@ -221,7 +221,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.y>0 && pos.x>0)
 			{
-				if((P.pion[pos.x-i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x-i][pos.y-i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x-i][pos.y-i].val==2 && (pos.x-i>0 && pos.y-i>0) )
 					{
@@ -233,7 +233,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x-i][pos.y-i].val==1 && (pos.x-i>0 && pos.y-i>0) )
 					{
@@ -258,7 +258,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.y<7 && pos.x>0)
 			{
-				if((P.pion[pos.x-i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x-i][pos.y+i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x-i][pos.y+i].val==2 && (pos.x-i>0 && pos.y+i<7) )
 					{
@@ -270,7 +270,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x-i][pos.y+i].val==1 && (pos.x-i>0 && pos.y+i<7) )
 					{
@@ -295,7 +295,7 @@ public class Pion_Othello extends Pion
 			int i=1;
 			if(pos.y<7 && pos.x<7)
 			{
-				if((P.pion[pos.x+i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				if((P.pion[pos.x+i][pos.y+i].val==2) && (J.color=="Blanc"))
 				{
 					while (P.pion[pos.x+i][pos.y+i].val==2 && (pos.x+i<7 && pos.y+i<7))
 					{
@@ -307,7 +307,7 @@ public class Pion_Othello extends Pion
 					}
 					else return 0;
 				}
-				else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.color=="Noir"))
 				{
 					while (P.pion[pos.x+i][pos.y+i].val==1 && (pos.x+i<7 && pos.y+i<7) )
 					{
@@ -331,7 +331,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_haut(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x][pos.y-i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x][pos.y-i].val==2)
 				{
@@ -339,7 +339,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x][pos.y-i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x][pos.y-i].val==1)
 				{
@@ -357,7 +357,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_hd(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x+i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x+i][pos.y-i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x+i][pos.y-i].val==2)
 				{
@@ -365,7 +365,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x+i][pos.y-i].val==1)
 				{
@@ -383,7 +383,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_droite(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x+i][pos.y].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x+i][pos.y].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x+i][pos.y].val==2)
 				{
@@ -391,7 +391,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x+i][pos.y].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x+i][pos.y].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x+i][pos.y].val==1)
 				{
@@ -409,7 +409,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_bd(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x+i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x+i][pos.y+i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x+i][pos.y+i].val==2)
 				{
@@ -417,7 +417,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x+i][pos.y+i].val==1)
 				{
@@ -435,7 +435,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_bas(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x][pos.y+i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x][pos.y+i].val==2)
 				{
@@ -443,7 +443,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x][pos.y+i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x][pos.y+i].val==1)
 				{
@@ -461,7 +461,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_bg(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x-i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x-i][pos.y+i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x-i][pos.y+i].val==2)
 				{
@@ -469,7 +469,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x-i][pos.y+i].val==1)
 				{
@@ -487,7 +487,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_gauche(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x-i][pos.y].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x-i][pos.y].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x-i][pos.y].val==2)
 				{
@@ -495,7 +495,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x-i][pos.y].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x-i][pos.y].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x-i][pos.y].val==1)
 				{
@@ -513,7 +513,7 @@ public class Pion_Othello extends Pion
 		   int i=1;
 		   if(verif_hg(P,J,pos)!=0)
 		   {
-			if((P.pion[pos.x-i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			if((P.pion[pos.x-i][pos.y-i].val==2) && (J.color=="Blanc"))
 			{
 				while (P.pion[pos.x-i][pos.y-i].val==2)
 				{
@@ -521,7 +521,7 @@ public class Pion_Othello extends Pion
 					i++;
 				}
 			}
-			else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.color=="Noir"))
 			{
 				while (P.pion[pos.x-i][pos.y-i].val==1)
 				{

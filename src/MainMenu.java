@@ -177,14 +177,18 @@ public class MainMenu extends JFrame{
     public void start_h_game(boolean j2ai)//to prepare an hexxagon game
     {
         if (j2ai) {
-            int p_size = get_spinner("Entrez la taille du tableau", 3, 6);
+            int p_size = get_spinner("Entrez la taille du tableau", 3,7 );
 
             if (p_size != 0) {
                 String j1_name=get_string("Entrez le nom du Joueur 1","Orangylux");
                 if (j1_name!="\n") {
-                    Joueur j1 = new Joueur(false, j1_name, 0, "000000");
-                    Joueur j2 = new Joueur(true, "Granolax", 0, "FFFFFF");
-                    //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
+                    String c1 =color_selector(j1_name,0);
+                    Joueur j1 = new Joueur(false, j1_name, 0, c1);
+                    Joueur j2 = new Joueur(true, "Granolax", 0, "Bleu");
+                    while (j1.color==j2.color)
+                    {
+                        j1.color=color_selector(j1_name,0);
+                    }
                     //TODO: LAUNCH GAME
                     System.out.print("Lauuuuuuuunch!");
                     dispose();
@@ -198,17 +202,23 @@ public class MainMenu extends JFrame{
         }
         else
         {
-            int p_size = get_spinner("Entrez la taille du tableau", 3, 6);
+            int p_size = get_spinner("Entrez la taille du tableau", 3, 7);
             if (p_size != 0)
             {
                   String j1_name= get_string("Entrez le nom du Joueur 1","Orangylux");
                 if (j1_name!="\n")
                 {
-                    Joueur j1 = new Joueur(false, j1_name, 0, "000000");
+                    String c1 =color_selector(j1_name,0);
+                    Joueur j1 = new Joueur(false, j1_name, 0, c1);
                     String j2_name = get_string("Entrez le nom du Joueur 2", "Granolax");
                     if (j2_name!="\n")
                     {
-                        Joueur j2 = new Joueur(false, j2_name, 0, "000000");
+                        String c2 =color_selector(j2_name,1);
+                        Joueur j2 = new Joueur(false, j2_name, 0, c2);
+                        while (j1.color==j2.color) {
+                            j1.color = color_selector(j1_name, 0);
+                            j2.color = color_selector(j2_name, 1);
+                        }
                         //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
                         //TODO: LAUNCH GAME
                     }
@@ -223,8 +233,8 @@ public class MainMenu extends JFrame{
             String j1_name=get_string("Entrez le nom du Joueur 1", "Orangylux");
             if (j1_name!="\n")
             {
-                Joueur j1= new Joueur(false,j1_name,0,"000000");
-                Joueur j2= new Joueur(true,"Granolax",0,"FFFFFF");
+                Joueur j1= new Joueur(false,j1_name,0,"Blanc");
+                Joueur j2= new Joueur(true,"Granolax",0,"Noir");
                 //TODO: LAUNCH GAME
             }
         }
@@ -233,17 +243,32 @@ public class MainMenu extends JFrame{
             String j1_name=get_string("Entrez le nom du Joueur 1", "Orangylux");
             if (j1_name!="\n")
             {
-                Joueur j1 = new Joueur(false, j1_name, 0, "000000");
+                Joueur j1 = new Joueur(false, j1_name, 0, "Blanc");
                 String j2_name= get_string("Entrez le nom du Joueur 2", "Granolax");
                 if (j2_name!="\n")
                 {
-                    Joueur j2 = new Joueur(false, j2_name,0,"FFFFFF");
+                    Joueur j2 = new Joueur(false, j2_name,0,"Noir");
                     //TODO:LAUNCH GAME
                 }
             }
 
         }
 
+    }
+    public String color_selector(String titre, int i)
+    {
+        JOptionPane selector= new JOptionPane();
+        String options[]={"Rouge","Bleu","Vert","Rose","Violet"};
+        int retour= selector.showOptionDialog(this,"Choisissez votre couleur de pion","Couleur-"+ titre,1,3,null,options,options[i]);
+        System.out.print(retour);
+        if (retour == -1)
+        {
+            return options[i];
+        }
+        else
+        {
+            return options[retour];
+        }
     }
 
 }

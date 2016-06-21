@@ -211,7 +211,7 @@ public class Pion_Othello extends Pion
 				}
 				else return 0;
 			}
-			else return 0;
+			else return 0; 
 
 
 		}

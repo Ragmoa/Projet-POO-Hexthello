@@ -252,6 +252,12 @@ public class MainMenu extends JFrame{
                 Plateau_Othello o_p = new Plateau_Othello(0);
                 Game_Window gw = new Game_Window(o_p, ready);
                 dispose();
+                JFrame shitty_swing= new JFrame();
+                shitty_swing.add(gw);
+                shitty_swing.setTitle("Hexthello-Othello");
+                shitty_swing.setSize(800,600);
+                shitty_swing.setVisible(true);
+                shitty_swing.setLocation(400,300);
                 gw.setVisible(true);
             }
         }

@@ -1,294 +1,539 @@
+package othello;
+
 public class Pion_Othello extends Pion
 {
-	public Pion_Othello()
+	
+		public Pion_Othello()
 		{
 			val=0;
 		}
 	// J'ai vu que Ryckaert et Pablo ont utilisé des vecteurs pour dire où on a cliqué je fais alors de même
-		boolean est_debut_coup_valide (Plateau_Othello P,Joueur J,vect pos)
+		boolean coup_pas_valide (Plateau_Othello P,Joueur J,vect pos)
 		{
-		    return (
-		    (pos.x >= 0) && (pos.x < 8) &&
-		    (pos.y >= 0) && (pos.y < 8) &&
-		    (P.pion[pos.x][pos.y].val == 0)&&
-		    ((P.pion[pos.x+1][pos.y].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x+1][pos.y].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x+1][pos.y+1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x+1][pos.y+1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x+1][pos.y-1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x+1][pos.y-1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x][pos.y+1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y+1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x][pos.y-1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y-1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x-1][pos.y-1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x-1][pos.y-1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x-1][pos.y+1].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x-1][pos.y+1].val == 2 && J.Couleur=="Blanc"))&&
-		    ((P.pion[pos.x-1][pos.y].val== 1 && J.Couleur=="Noir")||( P.pion[pos.x-1][pos.y].val == 2 && J.Couleur=="Blanc"))
-		   		 );
+		    return ((verif_haut(P,J,pos)==0 && verif_bas(P,J,pos)==0 && verif_gauche(P,J,pos)==0 && verif_droite(P,J,pos)==0 && verif_hd(P,J,pos)==0 && verif_hg(P,J,pos)==0 && verif_bd(P,J,pos)==0 && verif_bg(P,J,pos)==0) || P.pion[pos.x][pos.y].val!=0);
 		}
 		
-		int haut_valide(Plateau_Othello P, Joueur J, vect pos)
+		int nb_pion_retourne(Plateau_Othello P,Joueur J,vect pos)
 		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x+i][pos.y].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x+i][pos.y].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int haut_droite_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x+i][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y+i].val == 2 && J.Couleur=="Blanc"));
-
-
-		    if ( P.pion[pos.x+i][pos.y+i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int droite_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y+i].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x][pos.y+i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int bas_droite_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x-i][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y+i].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x-i][pos.y+i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int bas_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x-i][pos.y].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x-i][pos.y].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int bas_gauche_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x-i][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y-i].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x-i][pos.y-i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int gauche_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y-i].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x][pos.y-i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
-		}
-
-		int haut_gauche_valide(Plateau_Othello P, Joueur J, vect pos)
-		{
-		    int i=0;
-		    do
-		    {
-		   	 i++;
-		    }while((P.pion[pos.x+i][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y-i].val == 2 && J.Couleur=="Blanc"));
-
-		    if ( P.pion[pos.x+i][pos.y-i].val==0)
-		    {
-		   	 return i;
-		    }
-		    else
-		    return 0;
-
+			
+			int a,b,c,d,e,f,g,h,somme;
+			
+			a=verif_haut(P,J,pos);
+			b=verif_bas(P,J,pos);
+			c=verif_gauche(P,J,pos);
+			d=verif_droite(P,J,pos);
+			e=verif_bd(P,J,pos);
+			f=verif_bg(P,J,pos);
+			g=verif_hd(P,J,pos);
+			h=verif_hg(P,J,pos);
+			
+			somme=a+b+c+d+e+f+g+h;
+			if (somme==0)
+			{
+				return -1;
+			}
+			else
+			
+				return somme;
+			 
 		}
 		
-		int est_coup_valide(Plateau_Othello P, Joueur J, vect pos)
+		int verif_haut(Plateau_Othello P,Joueur J,vect pos)
 		{
-		    int i,j,k,l,m,n,o,p;
-		    
-		   		 i=haut_valide(P,J,pos);
-		   		 j=haut_droite_valide(P,J,pos);
-		   		 k=droite_valide(P,J,pos);
-		   		 l=bas_droite_valide(P,J,pos);
-		   		 m=bas_valide(P,J,pos);
-		   		 n=bas_gauche_valide(P,J,pos);
-		   		 o=gauche_valide(P,J,pos);
-		   		 p=haut_gauche_valide(P,J,pos);
-		   		 
-		   	if(i+j+k+l+m+n+o+p!=0)
-		   		 return i+j+k+l+m+n+o+p;
-		   	 
+			if(pos.y>0)
+			{
+				int i=1;
+				if((P.pion[pos.x][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x][pos.y-i].val==2 && pos.y-i>0)
+					{
+						i++;
+					}
+					if (P.pion[pos.x][pos.y-i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x][pos.y-i].val==1 && pos.y-i>0)
+					{
+						i++;
+					}
+					if (P.pion[pos.x][pos.y-i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
 
-		    else return 0;
+
 		}
-		
+
+		int verif_bas(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+				if(pos.y <7)
+				{
+				if((P.pion[pos.x][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x][pos.y+i].val==2 && pos.y+i<7)
+					{
+						i++;
+					}
+					if (P.pion[pos.x][pos.y+i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x][pos.y+i].val==1 && pos.y+i<7)
+					{
+						i++;
+					}
+					if (P.pion[pos.x][pos.y+i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+		int verif_gauche(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.x>0)
+			{
+				if((P.pion[pos.x-i][pos.y].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x-i][pos.y].val==2 && pos.x-i>0)
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x-i][pos.y].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x-i][pos.y].val==1 && pos.x-i>0)
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+		int verif_droite(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.x<7)
+			{
+				if((P.pion[pos.x+i][pos.y].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x+i][pos.y].val==2 && pos.x+i<7)
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x+i][pos.y].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x+i][pos.y].val==1 && pos.x+i<7)
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+		int verif_hd(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.y>0 && pos.x<7)
+			{
+				if((P.pion[pos.x+i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x+i][pos.y-i].val==2 && (pos.x+i<7 && pos.y-i>0) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y-i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x+i][pos.y-i].val==1 && (pos.x+i<7 && pos.y-i>0) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y-i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+		int verif_hg(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.y>0 && pos.x>0)
+			{
+				if((P.pion[pos.x-i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x-i][pos.y-i].val==2 && (pos.x-i>0 && pos.y-i>0) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y-i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x-i][pos.y-i].val==1 && (pos.x-i>0 && pos.y-i>0) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y-i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+
+		int verif_bg(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.y<7 && pos.x>0)
+			{
+				if((P.pion[pos.x-i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x-i][pos.y+i].val==2 && (pos.x-i>0 && pos.y+i<7) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y+i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x-i][pos.y+i].val==1 && (pos.x-i>0 && pos.y+i<7) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x-i][pos.y+i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
+
+		int verif_bd(Plateau_Othello P,Joueur J,vect pos)
+		{
+			int i=1;
+			if(pos.y<7 && pos.x<7)
+			{
+				if((P.pion[pos.x+i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+				{
+					while (P.pion[pos.x+i][pos.y+i].val==2 && (pos.x+i<7 && pos.y+i<7))
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y+i].val==1)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+				{
+					while (P.pion[pos.x+i][pos.y+i].val==1 && (pos.x+i<7 && pos.y+i<7) )
+					{
+						i++;
+					}
+					if (P.pion[pos.x+i][pos.y+i].val==2)
+					{
+						return (i-1);
+					}
+					else return 0;
+				}
+				else return 0;
+			}
+			else return 0;
+
+
+		}
+
 		void haut_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x+i][pos.y].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y].val == 2 && J.Couleur=="Blanc"))
-		    {
-		        if(P.pion[pos.x+i][pos.y].val==1)
-		        	P.pion[pos.x+i][pos.y].val=2;
-		        else
-		        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_haut(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x][pos.y-i].val==2)
+				{
+					P.pion[pos.x][pos.y-i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x][pos.y-i].val==1)
+				{
+					P.pion[pos.x][pos.y-i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void haut_droite_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		    while((P.pion[pos.x+i][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y+i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	if(P.pion[pos.x+i][pos.y].val==1)
-		        	P.pion[pos.x+i][pos.y].val=2;
-		        else
-		        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_hd(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x+i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x+i][pos.y-i].val==2)
+				{
+					P.pion[pos.x+i][pos.y-i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x+i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x+i][pos.y-i].val==1)
+				{
+					P.pion[pos.x+i][pos.y-i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void droite_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		    while((P.pion[pos.x][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y+i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	if(P.pion[pos.x+i][pos.y].val==1)
-		        	P.pion[pos.x+i][pos.y].val=2;
-		        else
-		        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_droite(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x+i][pos.y].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x+i][pos.y].val==2)
+				{
+					P.pion[pos.x+i][pos.y].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x+i][pos.y].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x+i][pos.y].val==1)
+				{
+					P.pion[pos.x+i][pos.y].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void bas_droite_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x-i][pos.y+i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y+i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	  if(P.pion[pos.x+i][pos.y].val==1)
-			        	P.pion[pos.x+i][pos.y].val=2;
-			        else
-			        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_bd(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x+i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x+i][pos.y+i].val==2)
+				{
+					P.pion[pos.x+i][pos.y+i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x+i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x+i][pos.y+i].val==1)
+				{
+					P.pion[pos.x+i][pos.y+i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void bas_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x-i][pos.y].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	  if(P.pion[pos.x+i][pos.y].val==1)
-			        	P.pion[pos.x+i][pos.y].val=2;
-			        else
-			        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_bas(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x][pos.y+i].val==2)
+				{
+					P.pion[pos.x][pos.y+i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x][pos.y+i].val==1)
+				{
+					P.pion[pos.x][pos.y+i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void bas_gauche_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x-i][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x-i][pos.y-i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	  if(P.pion[pos.x+i][pos.y].val==1)
-			        	P.pion[pos.x+i][pos.y].val=2;
-			        else
-			        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_bg(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x-i][pos.y+i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x-i][pos.y+i].val==2)
+				{
+					P.pion[pos.x-i][pos.y+i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x-i][pos.y+i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x-i][pos.y+i].val==1)
+				{
+					P.pion[pos.x-i][pos.y+i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void gauche_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x][pos.y-i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	  if(P.pion[pos.x+i][pos.y].val==1)
-			        	P.pion[pos.x+i][pos.y].val=2;
-			        else
-			        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_gauche(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x-i][pos.y].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x-i][pos.y].val==2)
+				{
+					P.pion[pos.x-i][pos.y].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x-i][pos.y].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x-i][pos.y].val==1)
+				{
+					P.pion[pos.x-i][pos.y].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void haut_gauche_retourne(Plateau_Othello P, Joueur J, vect pos)
 		{
-		      int i=1;
-		      while((P.pion[pos.x+i][pos.y-i].val==1 && J.Couleur=="Noir")||( P.pion[pos.x+i][pos.y-i].val == 2 && J.Couleur=="Blanc"))
-		    {
-		    	  if(P.pion[pos.x+i][pos.y].val==1)
-			        	P.pion[pos.x+i][pos.y].val=2;
-			        else
-			        	P.pion[pos.x+i][pos.y].val=1;
-		   	 i++;
-		    }
-
+		   int i=1;
+		   if(verif_hg(P,J,pos)!=0)
+		   {
+			if((P.pion[pos.x-i][pos.y-i].val==2) && (J.Couleur=="Blanc"))
+			{
+				while (P.pion[pos.x-i][pos.y-i].val==2)
+				{
+					P.pion[pos.x-i][pos.y-i].val=1;
+					i++;
+				}
+			}
+			else if((P.pion[pos.x-i][pos.y-i].val==1) && (J.Couleur=="Noir"))
+			{
+				while (P.pion[pos.x-i][pos.y-i].val==1)
+				{
+					P.pion[pos.x-i][pos.y-i].val=2;
+					i++;
+				}
+			
+			}
+		}
+		 
 		}
 
 		void retourne_all(Plateau_Othello P,Joueur J, vect pos)
@@ -304,7 +549,7 @@ public class Pion_Othello extends Pion
 
 		}
 		
-		
+
 		int coup_possible(Plateau_Othello P,Joueur J)
 		{
 		    vect pos = new vect();
@@ -313,7 +558,7 @@ public class Pion_Othello extends Pion
 		    {
 		        for(pos.y=0;pos.y<8;pos.y++)
 		        {
-		            if(est_debut_coup_valide(P,J,pos) && est_coup_valide(P,J,pos)!=0 )
+		            if( !coup_pas_valide(P,J,pos) )
 		            {
 		                nbcoup++;
 		            }
@@ -332,9 +577,9 @@ public class Pion_Othello extends Pion
 		    {
 		        for(pos.y=0;pos.y<8;pos.y++)
 		        {
-		            if(est_debut_coup_valide(P,J,pos) && est_coup_valide(P,J,pos)>max )
+		            if(!coup_pas_valide(P,J,pos) && nb_pion_retourne(P,J,pos)>max )
 		            {
-		                max=est_coup_valide(P,J,pos);
+		                max=nb_pion_retourne(P,J,pos);
 		                posMax.x=pos.x;
 		                posMax.y=pos.y;
 		            }
@@ -343,4 +588,7 @@ public class Pion_Othello extends Pion
 		    return posMax;
 		}
 
+
 }
+
+

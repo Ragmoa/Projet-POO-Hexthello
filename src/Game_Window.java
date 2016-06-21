@@ -30,7 +30,7 @@ public class Game_Window extends JPanel {
     		pion = ImageIO.read(new File("OTHELLO/b.png"));
 
         }catch (IOException ex ){
-            //Je sais pas quoi foutre, ce langage est merdique!
+            
         }
     	Image dimg = pion.getScaledInstance(60,60,Image.SCALE_SMOOTH);
         BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
@@ -52,7 +52,6 @@ public class Game_Window extends JPanel {
         		System.out.println(new File("othello.png"));
         		plateau = ImageIO.read(new File("OTHELLO/othello.png"));
             }catch (IOException ex ){
-                //Je sais pas quoi foutre, ce langage est merdique!
             }
         	Image dimg = plateau.getScaledInstance(620,620,Image.SCALE_SMOOTH);
             BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
@@ -70,7 +69,6 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/4x4/hexa-3x3.png"));
                 }catch (IOException ex){
-                    //Je sais pas quoi foutre, ce langage est merdique!
                 }
             }
             if (game_board.larg==4)
@@ -78,7 +76,6 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/4x4/hexa-4x4.png"));
                 }catch (IOException ex){
-                    //Je sais pas quoi foutre, ce langage est merdique!
                 }
 
             }
@@ -87,7 +84,6 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/5x5/hexa-5x5.png"));
                 }catch (IOException ex){
-                    //Je sais pas quoi foutre, ce langage est merdique!
                 }
 
             }
@@ -96,7 +92,6 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/6x6/hexa-6x6.png"));
                 }catch (IOException ex){
-                    //Je sais pas quoi foutre, ce langage est merdique!
                 }
 
             }
@@ -105,7 +100,6 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/7x7/hexa-7x7.png"));
                 }catch (IOException ex){
-                    //Je sais pas quoi foutre, ce langage est merdique!
                 }
             }
             Image dimg = plateau.getScaledInstance(1280,720,Image.SCALE_SMOOTH);

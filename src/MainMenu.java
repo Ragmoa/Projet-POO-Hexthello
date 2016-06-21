@@ -54,7 +54,7 @@ public class MainMenu extends JFrame{
             //-->New Game
             new_game.add(hexxagon);
                 //--->Hexxagon
-                hexxagon.add(h_pve);
+               // hexxagon.add(h_pve);
                 hexxagon.add(h_pvp);
             //-->New Game
             new_game.add(othello);
@@ -79,13 +79,13 @@ public class MainMenu extends JFrame{
         menuBar.add(exit_button);
 
         //                  --- Making the buttons actually do stuff ---
-        h_pve.addActionListener(new ActionListener() {  //Hexxagon PVE
+        /*h_pve.addActionListener(new ActionListener() {  //Hexxagon PVE
             @Override
             public void actionPerformed(ActionEvent e) {
                 start_h_game(true);
 
             }
-        });
+        });*/
 
         h_pvp.addActionListener(new ActionListener() {  //Hexxagon PVP
             @Override
@@ -177,7 +177,7 @@ public class MainMenu extends JFrame{
     public void start_h_game(boolean j2ai)//to prepare an hexxagon game
     {
         if (j2ai) {
-            int p_size = get_spinner("Entrez la taille du tableau", 3,7 );
+            /*int p_size = get_spinner("Entrez la taille du tableau", 3,7 );
 
             if (p_size != 0) {
                 String j1_name=get_string("Entrez le nom du Joueur 1","Orangylux");
@@ -198,7 +198,7 @@ public class MainMenu extends JFrame{
             else
             {
                 //LEAVE EMPTY
-            }
+            }*/
         }
         else
         {

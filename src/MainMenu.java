@@ -187,6 +187,8 @@ public class MainMenu extends JFrame{
                     //TODO: COLOR SELECTOR <--> DO WE REALLY HAVE TIME FOR THAT?
                     //TODO: LAUNCH GAME
                     System.out.print("Lauuuuuuuunch!");
+                    dispose();
+
                 }
             }
             else

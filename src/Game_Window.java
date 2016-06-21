@@ -30,12 +30,11 @@ public class Game_Window extends JPanel {
     		pion = ImageIO.read(new File("OTHELLO/b.png"));
 
         }catch (IOException ex ){
-            
         }
     	Image dimg = pion.getScaledInstance(60,60,Image.SCALE_SMOOTH);
-        BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
+        BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); //
         Graphics2D bGr = bimage.createGraphics();
-        bGr.drawString("Suce ma bite1", i , j);
+        bGr.drawImage(dimg, i , j, null);
         bGr.dispose();
         p_label= new JLabel(new ImageIcon(bimage));
         add(p_label);
@@ -52,9 +51,10 @@ public class Game_Window extends JPanel {
         		System.out.println(new File("othello.png"));
         		plateau = ImageIO.read(new File("OTHELLO/othello.png"));
             }catch (IOException ex ){
+
             }
         	Image dimg = plateau.getScaledInstance(620,620,Image.SCALE_SMOOTH);
-            BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
+            BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); //
             Graphics2D bGr = bimage.createGraphics();
             bGr.drawImage(dimg, 0, 10, null);
             bGr.dispose();
@@ -69,6 +69,7 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/4x4/hexa-3x3.png"));
                 }catch (IOException ex){
+
                 }
             }
             if (game_board.larg==4)
@@ -76,6 +77,7 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/4x4/hexa-4x4.png"));
                 }catch (IOException ex){
+
                 }
 
             }
@@ -84,6 +86,7 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/5x5/hexa-5x5.png"));
                 }catch (IOException ex){
+
                 }
 
             }
@@ -92,6 +95,7 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/6x6/hexa-6x6.png"));
                 }catch (IOException ex){
+
                 }
 
             }
@@ -100,6 +104,7 @@ public class Game_Window extends JPanel {
                 try {
                     plateau = ImageIO.read(new File("HEXA/7x7/hexa-7x7.png"));
                 }catch (IOException ex){
+
                 }
             }
             Image dimg = plateau.getScaledInstance(1280,720,Image.SCALE_SMOOTH);

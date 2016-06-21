@@ -3,13 +3,21 @@ public class Plateau_Hexagon extends Plateau {
 	public hexaPawn[][] pion;
 	
 	public Plateau_Hexagon(int size){
-		
+
+		int i=0, j=0;
+
 		larg = size ;
 		longu = size ;
 		form_case = 6;
 		form_plat = 4;
 		
-		pion = new hexaPawn[larg][longu] ;
+		pion = new hexaPawn[larg][longu];
+
+		for(i=0; i<larg ; i++){
+			for(j=0 ; j<longu ; j++){
+				pion[i][j] = new hexaPawn(0);
+			}
+		}
 
 		init_plateau() ;
 

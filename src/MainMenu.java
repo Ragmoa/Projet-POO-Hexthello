@@ -228,7 +228,7 @@ public class MainMenu extends JFrame{
                         JFrame shitty_swing= new JFrame();
                         shitty_swing.add(gw);
                         shitty_swing.setTitle("Hexthello-Hexxagon");
-                        shitty_swing.setSize(1280,720);
+                        shitty_swing.setSize(1280,730);
                         shitty_swing.setVisible(true);
                         shitty_swing.setLocation(640,360);
                         gw.setVisible(true);

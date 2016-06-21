@@ -3,7 +3,9 @@ public class Plateau_Othello extends Plateau {
 	public Pion_Othello[][] pion;
 	
 	public Plateau_Othello(int cases_inva){
-		
+
+		int i, j;
+
 		larg = 8;
 		longu = 8;
 		form_case=4;
@@ -11,6 +13,12 @@ public class Plateau_Othello extends Plateau {
 		int cases_invalides=cases_inva;
 		
 		pion = new Pion_Othello[larg][longu] ;
+
+		for(i=0; i<larg ; i++){
+			for(j=0 ; j<longu ; j++){
+				pion[i][j] = new Pion_Othello();
+			}
+		}
 
 		init_plateau(cases_invalides);
 

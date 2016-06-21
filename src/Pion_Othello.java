@@ -1,5 +1,9 @@
 public class Pion_Othello extends Pion
 {
+	public Pion_Othello()
+		{
+			val=0;
+		}
 	// J'ai vu que Ryckaert et Pablo ont utilisé des vecteurs pour dire où on a cliqué je fais alors de même
 		boolean est_debut_coup_valide (Plateau_Othello P,Joueur J,vect pos)
 		{

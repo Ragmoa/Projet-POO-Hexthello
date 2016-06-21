@@ -229,12 +229,12 @@ public class MainMenu extends JFrame{
                         //System.out.print("Game window created\n");
                         dispose();
                         //System.out.print("Disposed of Main menu window\n");
-                        JFrame shitty_swing= new JFrame();
-                        shitty_swing.add(gw);
-                        shitty_swing.setTitle("Hexthello-Hexxagon");
-                        shitty_swing.setSize(1280,730);
-                        shitty_swing.setVisible(true);
-                        shitty_swing.setLocation(640,360);
+                        JFrame Kswing= new JFrame();
+                        Kswing.add(gw);
+                        Kswing.setTitle("Hexthello-Hexxagon");
+                        Kswing.setSize(1280,730);
+                        Kswing.setVisible(true);
+                        Kswing.setLocation(640,360);
                         gw.setVisible(true);
                         //System.out.print("You should see Game Window Now\n");
                         //System.out.print(gw.players[0].name);
@@ -256,12 +256,12 @@ public class MainMenu extends JFrame{
                 Plateau_Othello o_p = new Plateau_Othello(0);
                 Game_Window gw = new Game_Window(o_p, ready);
                 dispose();
-                JFrame shitty_swing= new JFrame();
-                shitty_swing.add(gw);
-                shitty_swing.setTitle("Hexthello-Othello");
-                shitty_swing.setSize(630,630);
-                shitty_swing.setVisible(true);
-                shitty_swing.setLocation(400,300);
+                JFrame Kswing= new JFrame();
+                Kswing.add(gw);
+                Kswing.setTitle("Hexthello-Othello");
+                Kswing.setSize(630,630);
+                Kswing.setVisible(true);
+                Kswing.setLocation(400,300);
                 gw.setVisible(true);
             }
         }
@@ -279,12 +279,12 @@ public class MainMenu extends JFrame{
                     Plateau_Othello o_p = new Plateau_Othello(0);
                     Game_Window gw = new Game_Window(o_p, ready);
                     dispose();
-                    JFrame shitty_swing= new JFrame();
-                    shitty_swing.add(gw);
-                    shitty_swing.setTitle("Hexthello-Othello");
-                    shitty_swing.setSize(630,630);
-                    shitty_swing.setVisible(true);
-                    shitty_swing.setLocation(400,300);
+                    JFrame Kswing= new JFrame();
+                    Kswing.add(gw);
+                    Kswing.setTitle("Hexthello-Othello");
+                    Kswing.setSize(630,630);
+                    Kswing.setVisible(true);
+                    Kswing.setLocation(400,300);
                     
                     for(int i=0;i<8;i++)
                     {

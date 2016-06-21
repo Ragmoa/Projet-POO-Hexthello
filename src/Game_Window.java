@@ -26,7 +26,7 @@ public class Game_Window extends JPanel {
     	BufferedImage pion=null;
 		JLabel p_label = null;
 		try {
-            //plateau = ImageIO.read(new File("/OTHELLO/othello-plat.png"));
+            //plateau = ImageIO.read(new File("OTHELLO/othello-plat.png"));
     		pion = ImageIO.read(new File("OTHELLO/b.png"));
 
         }catch (IOException ex ){
@@ -35,7 +35,7 @@ public class Game_Window extends JPanel {
     	Image dimg = pion.getScaledInstance(60,60,Image.SCALE_SMOOTH);
         BufferedImage bimage = new BufferedImage(dimg.getWidth(null) ,dimg.getHeight(null), BufferedImage.TYPE_INT_ARGB); // 
         Graphics2D bGr = bimage.createGraphics();
-        bGr.drawImage(dimg, (i*75+20) ,(j*75+20), null);
+        bGr.drawString("Suce ma bite1", i , j);
         bGr.dispose();
         p_label= new JLabel(new ImageIcon(bimage));
         add(p_label);
@@ -48,10 +48,9 @@ public class Game_Window extends JPanel {
         if (game_board.form_case==4)
         {
         	try {
-                //plateau = ImageIO.read(new File("/OTHELLO/othello-plat.png"));
+                plateau = ImageIO.read(new File("OTHELLO/othello-plat.png"));
         		System.out.println(new File("othello.png"));
         		plateau = ImageIO.read(new File("OTHELLO/othello.png"));
-	
             }catch (IOException ex ){
                 //Je sais pas quoi foutre, ce langage est merdique!
             }

@@ -222,8 +222,18 @@ public class MainMenu extends JFrame{
                         Joueur ready[]={j1,j2};
                         Plateau_Hexagon hex_p= new Plateau_Hexagon(p_size);
                         Game_Window gw= new Game_Window(hex_p,ready);
+                        //System.out.print("Game window created\n");
                         dispose();
+                        //System.out.print("Disposed of Main menu window\n");
+                        JFrame shitty_swing= new JFrame();
+                        shitty_swing.add(gw);
+                        shitty_swing.setTitle("Hexthello-Hexxagon");
+                        shitty_swing.setSize(1280,720);
+                        shitty_swing.setVisible(true);
+                        shitty_swing.setLocation(640,360);
                         gw.setVisible(true);
+                        //System.out.print("You should see Game Window Now\n");
+                        //System.out.print(gw.players[0].name);
                     }
                 }
             }
@@ -259,6 +269,12 @@ public class MainMenu extends JFrame{
                     Plateau_Othello o_p = new Plateau_Othello(0);
                     Game_Window gw = new Game_Window(o_p, ready);
                     dispose();
+                    JFrame shitty_swing= new JFrame();
+                    shitty_swing.add(gw);
+                    shitty_swing.setTitle("Hexthello-Othello");
+                    shitty_swing.setSize(800,600);
+                    shitty_swing.setVisible(true);
+                    shitty_swing.setLocation(400,300);
                     gw.setVisible(true);
                 }
             }

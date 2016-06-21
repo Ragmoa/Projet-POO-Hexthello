@@ -16,8 +16,17 @@
     \end{minipage}
  }
  \maketitle
- \maketitle
- \newpage
+ \section*{Gestion du plateau et des pions}
+ \subsection*{Gestion du plateau}
+
+ Notre programme contient une classe plateau, servant a modéliser tous les plateaux. Cette classe contient plusieurs attributs, comme la longueur et la largeur du plateau, ainsi que la forme des cases (stockées sous la forme d'un nombre représentant le nombre de cotés d'un polygone représentant une case) ainsi que son équivalent pour la forme du plateau.\footnote{Par manque de temps, nous n'avons pas implémenté cette fonctionnalité} \\
+
+ Cet objet est ensuite hérité par deux objets, Plateau\_Hexxagon et Plateau\_Othello, qui correpondent a leurs jeux respectifs. Ces derniers contiennent en plus un double tableau d'un type de pion respectif au jeu joué.\footnote{ Par exemple, hexaPawn pour l'Hexxagon et Pion\_Othello pour Othello. Voir gestion des pions.} Cela permet de séparer les focntions de gestion du plateau et des coups pour les différents jeux.
+
+
+
+
+
 \begin{center}
     \begin{tikzpicture}
             \umlclass[x=1]{Plateau}{
@@ -39,7 +48,7 @@
                         }{ +hexaPawn()\\ +Validemove() : int \\ +playMove() : void \\ +IsAlive() : boolean \\
                         }
              \umlclass[y=-2.5,x=-7]{Pion-Othello}{
-                        }{ +est\_debut\_coup\_valide() : boolean \\ +haut\_valide() : int \\ +haut\_droite\_valide() : int \\ +droite\_valide() : int \\ +bas\_droite\_valide() : int \\ +bas\_valide() : int \\ +bas\_gauche\_valide() : int\\ +gauche\_valide() : int \\ +haut\_gauche\_valide() : int \\ +est\_coup\_valide() : int \\ +haut\_retourne() : void \\ +haut\_droite\_retourne() : void \\ +droite\_retourne() : void\\ +bas\_droite\_retourne() : void \\ +bas\_retourne() : void \\+bas\_gauche\_retourne() : void \\ +gauche\_retourne() : void \\ +haut\_gauche\_retourne() : void \\ +retourne\_all() : void \\ +coup\_possible() : int \\meilleur\_coup\_possible() : vect
+             }{ +Pion\_Othello()\\+coup\_pas\_valide() : boolean \\ +nb\_pion\_retourne() : int \\ +verif\_haut() : int \\ +verif\_bas() : int \\ +verif\_gauche() : int\\ +verif\_droite() : int\\ +verif\_hd() : int \\ +verif\_hg() : int\\ +verif\_bg() : int\\ +verif\_bd() : int\\ +haut\_retourne() : void \\ +haut\_droite\_retourne() : void \\ +droite\_retourne() : void\\ +bas\_droite\_retourne() : void \\ +bas\_retourne() : void \\+bas\_gauche\_retourne() : void \\ +gauche\_retourne() : void \\ +haut\_gauche\_retourne() : void \\ +retourne\_all() : void \\ +coup\_possible() : int \\+meilleur\_coup\_possible() : vect
                         }
          \umlinherit[geometry=-|]{Pion-Othello}{Pion}
          \umlinherit[geometry=-|]{hexaPawn}{Pion}

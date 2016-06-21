@@ -33,7 +33,7 @@ public class Main_Othello{
 				{	
 					do
 					{			
-					//pos = mousel
+					//pos = mousel       ICI on devrait récupérer la position
 					}while(pion.coup_pas_valide(P,Jcourant,pos));
 					if(Jcourant.color=="Blanc")
 					{
